@@ -1,0 +1,168 @@
+
+{% extends 'Navi_and_footer_template.html' %}
+
+{% block body %}
+<script src="static/Tiffany/selectcard.js"></script>
+
+<div id="choosecard">
+          <select id="myCards">
+              <option>Select an Option</option>
+                 <option value="C1">4756-1234-9876</option>
+
+
+          </select>
+</div>
+
+<div  style="display: -webkit-box;">
+            <div style="    width: 500px;height: 400px;">
+                <img style="    width: 100%;" src="static/Tiffany/hotel_img/Nav_bar/images/spending grapd.png"></div>
+
+
+            <div  style="margin-top:10%";>
+                <table border="2" class="table"id="limitsetted" >
+                                        <caption>Daily Limits</caption>
+                                        <tr><td>Food: 20</td></tr>
+                                        <tr><td>Transport: 15</td></tr>
+                                        <tr><td>Groceries: 30</td></tr>
+                                        <tr><td>Necessity: 10</td></tr>
+                                        <tr><td>Shopping: 40</td></tr>
+                                        <tr><td>Emergency: 70</td></tr>
+                                        <tr><td>Others:80</td></tr>
+                                    <tr><td><button >Update limits</button></td></tr></table>
+            <!--<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>-->
+
+            </div>
+           <div id="usagehistory">
+               <table id="usageH">
+                   <caption style="font-weight: bolder;">Usage history</caption>
+                   <tr>
+
+                               <td><select>
+                                   <option>Select daily,weekly,monthly,yearly</option>
+                                   <option>Daily</option>
+                                   <option>Weekly</option>
+                                   <option>Monthly</option>
+                                   <option>Yearly</option>   </select>
+                               </td>
+
+
+                   </tr>
+                   <tr>
+
+                               <td><select>
+                                   <option>Select daily,weekly,monthly,yearly</option>
+                                   <option>Monday</option>
+                                   <option>Tuesday</option>
+                                   <option>Wednesday</option>
+                                   <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                     <option>Sunday</option>  </select>
+                               </td>
+
+
+
+                   </tr>
+               </table>
+           </div>
+</div>
+
+
+<div id="C1" class = "cards" >
+
+
+
+                    <table class="table" id="Transactions">
+                        <caption style="font-weight: bolder">All Transactions</caption>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Descriptions</th>
+                                <th>Time</th>
+                                <th>Debit(withdraw)</th>
+                                <th>Credit(deposit)</th>
+                                <th>E-receipt</th>
+                            </tr>
+                            <tr>
+                                 <td>1/12/2017</td>
+                                <td>Food</td>
+                                <td>Ichiban Boshi</td>
+                                <td>11:00 AM </td>
+                                <td>20</td>
+                                <td></td>
+                                <td><a href="/img"><button  value="receipt" >view</button></a>
+
+
+
+                                </td>
+                            </tr>
+                             <tr>
+                                 <td>1/12/2017</td>
+                                 <td>Transport</td>
+                                 <td>taxi</td>
+                                 <td>11:30 AM </td>
+                                 <td>5</td>
+                                 <td></td>
+                                 <td><a href="/img"><button  value="receipt" >view</button></a> </td>
+                            </tr>
+                             <tr>
+                                <td>1/12/2017</td>
+                                 <td>App Store</td>
+                                 <td>Spodify</td>
+                                 <td>13:00 PM </td>
+                                 <td>30</td>
+                                 <td></td>
+                                 <td><a href="/img"><button  value="receipt" >view</button></a> </td>
+                            </tr>
+                            <tr>
+                               <td>1/12/2017</td>
+                                <td>Transfer </td>
+                                <td>From Agnes</td>
+                                <td>13:00 PM </td>
+                                <td></td>
+                                <td>80</td>
+                                <td><button id="receipt" type="button" value="receipt" >view</button> </td>
+                            </tr>
+                             <tr>
+                                <td>1/12/2017</td>
+                                 <td>Beverages</td>
+                                 <td>Seven Eleven</td>
+                                 <td>15:30 PM </td>
+                                 <td>2.90</td>
+                                 <td></td>
+                                 <td><a href="/img"><button  value="receipt" >view</button></a> </td>
+                            </tr>
+                             <tr>
+                                 <td>1/12/2017</td>
+                                 <td>Shopping</td>
+                                 <td>UnicornWorld.com</td>
+                                 <td>16:00 PM </td>
+
+                                 <td>50</td>
+                                 <td></td>
+                                 <td><a href="/img"><button  value="receipt" >view</button></a> </td>
+
+                            </tr>
+
+                            <tr class="total">
+                                <td>Total</td>
+                                <td>   </td>
+                                <td></td>
+                                <td></td>
+                                <td style="font-weight: bolder;">107.90</td>
+                                <td style="font-weight: bolder;">80</td>
+                                <td></td>
+
+                            </tr>
+                    </table>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

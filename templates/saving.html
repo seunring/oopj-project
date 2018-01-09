@@ -1,0 +1,195 @@
+{% extends 'Navi_and_footer_template.html' %}
+
+
+<title>Saving</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% block body %}
+    <div id="savingpage">
+    <div class="savingslideshow-container">
+
+<div class="savingmySlides fade">
+  <img src="static/Selena/images/trip.jpg" style="width: 1000px;height: 400px;margin-top: 30px;">
+</div>
+
+<div class="savingmySlides fade">
+  <img src="static/Selena/images/saving3.png" style="width: 1000px;height: 400px;margin-top: 30px;">
+</div>
+
+<div class="savingmySlides fade">
+  <img src="static/Selena/images/saving2.png" style="width:1000px;height: 400px;margin-top: 30px;">
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="savingdot"></span>
+  <span class="savingdot"></span>
+  <span class="savingdot"></span>
+</div>
+
+<div class="targetcard" style="display: -webkit-box;">
+  <img src="static/Selena/images/form.jpg" alt="target" style="width:100%; padding-left: 7px;">
+  <div class="targetcontainer">
+    <h4><b>SETTING BUDGET FOR TRIPS</b></h4>
+    <p>Wanted to go somewhere but didnt have enough money, plan your saving for the trips!</p>
+      <a href="/form" class="button">LET'S SET!</a>
+  </div>
+</div>
+
+        <br>
+
+    <div class="topcard" style="margin-left: 250px;display: -webkit-box;">
+  <img src="static/Selena/images/bank.jpg" alt="target" style="width:100%">
+  <div class="topcontainer">
+    <h4><b>TOP-UP FOR SAVING</b></h4>
+    <p>Top up money into the application, to save up for YOUR UPCOMING TRIPS!</p>
+      <a href="/Topup" class="button">LET'S GO!</a>
+  </div>
+</div>
+    <br>
+
+        <div id="savinghistory">
+    <h2>SAVING HISTORY</h2>
+<table id='savingtable'>
+  <tr>
+    <th>No.</th>
+    <th>Trip</th>
+    <th>Date (end date)</th>
+    <th>Target Amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Hong Kong</td>
+    <td>26/12/2017</td>
+    <td>$3000</td>
+    <td><a href='static/Selena/images/barchart.PNG'>view</a></td>
+    <td><a href='#'>update</a></td>
+    <td><a href='#'>delete</a></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Malaysia</td>
+    <td>03/02/2018</td>
+    <td>$600</td>
+    <td><a href='#'>view</a></td>
+    <td><a href='#'>update</a></td>
+    <td><a href='#'>delete</a></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Japan</td>
+    <td>25/06/2018</td>
+    <td>$3000</td>
+    <td><a href='#'>view</a></td>
+    <td><a href='#'>update</a></td>
+    <td><a href='#'>delete</a></td>
+  </tr>
+</table></div>
+
+</div>
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("savingmySlides");
+    var dots = document.getElementsByClassName("savingdot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 3000);
+}
+</script>
+
+<style>
+#savingpage{margin-bottom: 30px;}
+
+.targetcard ,.topcard{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 25%;
+}
+
+.targetcard:hover,.topcard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.targetcontainer, .topcontainer {
+    padding: 2px 16px;
+}
+
+* {box-sizing:border-box}
+.savingmySlides {display:none}
+
+.savingslideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+    display: flow-root;
+}
+
+.savingdot {
+  height: 15px;
+  width: 30px;
+  margin: 0 2px;
+  background-color: #bbb;
+
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#savinghistory{width: 1000px;
+    margin-left: 250px}
+
+#savingtable {
+    font-family: arial;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: darkseagreen;
+}
+</style>
+{% endblock %}

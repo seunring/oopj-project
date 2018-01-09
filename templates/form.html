@@ -1,0 +1,301 @@
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+<script src="/static/js/moment.min.js"></script>
+<script src="/static/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/js/en-gb.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/create_form.css">
+
+</head>
+<h2 style="text-align: center;">Saving Plan</h2>
+<body id='form'>
+<div class="container">
+
+<div class="stepwizard col-md-offset-3">
+    <div class="stepwizard-row setup-panel">
+      <div class="stepwizard-step">
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-folder-open"></span></a>
+        <p>Information</p>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled"><span class="glyphicon glyphicon-usd"></span></a>
+        <p>Amount</p>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled"><span class="glyphicon glyphicon-ok"></span></a>
+        <p>Complete</p>
+      </div>
+    </div>
+  </div>
+  <form role="form" action="" method="post" >
+  <div class='form-table'>
+    <div class="row setup-content" id="step-1">
+      <div class="col-xs-6 col-md-offset-3">
+        <div class="col-md-12">
+          <h3>Basic Information</h3>
+          <div class="form-group">
+            <label class="control-label">Trip To</label>
+            <input maxlength="100" type="text" required="required" class="form-control" placeholder="Which country/place are you planning to go?">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Date</label>
+				<div class="form-group form-inline">
+				<label>From: </label>
+				<div class='input-group date' id='time_from' style="width:200px">
+				<input type='text' placeholder="Start Date" required="required" class="form-control" />
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+
+			<div class="form-group form-inline" style='float:right'>
+				<label>To:</label>
+				<div class='input-group date' id='time_to' style="width:200px">
+				<input type='text' placeholder="End Date" required="required" class="form-control" />
+				<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+				</div>
+			</div>
+		</div></div>
+            <a href="/saving" class="btn btn-primary btn-lg pull-left">Return</a>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row setup-content" id="step-2">
+      <div class="col-xs-6 col-md-offset-3">
+        <div class="col-md-12">
+          <h3>Budget Setting</h3>
+          <div class="form-group">
+            <div class="container2">
+            <div class="row clearfix">
+                <div class="col-xs-6 col-md-offset-3" style='margin:auto;'>
+                    <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+                        <thead>
+                            <tr >
+                                <th class="text-center">
+                                    Categories
+                                </th>
+                                <th class="text-center">
+                                    Amount ($)
+                                </th>
+                                <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+                                </th>
+                            </tr>
+                        </thead>
+				<tbody>
+    				<tr id='addr0' data-id="0">
+						<td data-name="Categories">
+						    <select>
+        				        <option value="">Accommodation</option>
+    					        <option value="1">Entertainment</option>
+        				        <option value="2">Food</option>
+        				        <option value="3">Leisure</option>
+								<option value="4">Shopping</option>
+								<option value="5">Tickets</option>
+								<option value="6">Others</option>
+						    </select>
+						</td>
+						<td data-name="amount">
+						    <input type="text" style='text-align:center;' required="required" name='amount0' placeholder='Estimated amount' class="form-control2"/>
+						</td>
+
+                        <td data-name="del">
+                            <button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+                        </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<a id="add_row" class="btn btn-default" type="button">Add Row</a>
+</div>
+          </div>
+          <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="row setup-content" id="step-3">
+      <div class="col-xs-6 col-md-offset-3">
+        <div class="col-md-12">
+          <h3>Complete</h3>
+		  <p> You have plan to save up for a trip to HONG KONG<br> The total amount you have to save up is $3000.</p>
+
+            <a href="/saving" class="btn btn-primary btn-lg pull-right">Back to Saving</a>
+
+        </div>
+      </div>
+
+    </div>
+	</div>
+  </form>
+
+</div>
+</body>
+
+<script>
+    $(document).ready(function () {
+  var navListItems = $('div.setup-panel div a'),
+          allWells = $('.setup-content'),
+          allNextBtn = $('.nextBtn'),
+  		  allPrevBtn = $('.prevBtn');
+
+  allWells.hide();
+
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+          navListItems.removeClass('btn-primary').addClass('btn-default');
+          $item.addClass('btn-primary');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+  });
+
+  allPrevBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+
+          prevStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i<curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel div a.btn-primary').trigger('click');
+});
+$(document).ready(function() {
+    $("#add_row").on("click", function() {
+        // Dynamic Rows Code
+
+        // Get max row id and set new id
+        var newid = 0;
+        $.each($("#tab_logic tr"), function() {
+            if (parseInt($(this).data("id")) > newid) {
+                newid = parseInt($(this).data("id"));
+            }
+        });
+        newid++;
+
+        var tr = $("<tr></tr>", {
+            id: "addr"+newid,
+            "data-id": newid
+        });
+
+        // loop through each td and create new elements with name of newid
+        $.each($("#tab_logic tbody tr:nth(0) td"), function() {
+            var cur_td = $(this);
+
+            var children = cur_td.children();
+
+            // add new td and element if it has a nane
+            if ($(this).data("name") != undefined) {
+                var td = $("<td></td>", {
+                    "data-name": $(cur_td).data("name")
+                });
+
+                var c = $(cur_td).find($(children[0]).prop('tagName')).clone().val("");
+                c.attr("name", $(cur_td).data("name") + newid);
+                c.appendTo($(td));
+                td.appendTo($(tr));
+            } else {
+                var td = $("<td></td>", {
+                    'text': $('#tab_logic tr').length
+                }).appendTo($(tr));
+            }
+        });
+
+        // add delete button and td
+        /*
+        $("<td></td>").append(
+            $("<button class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>")
+                .click(function() {
+                    $(this).closest("tr").remove();
+                })
+        ).appendTo($(tr));
+        */
+
+        // add the new row
+        $(tr).appendTo($('#tab_logic'));
+
+        $(tr).find("td button.row-remove").on("click", function() {
+             $(this).closest("tr").remove();
+        });
+});
+
+    // Sortable Code
+    var fixHelperModified = function(e, tr) {
+        var $originals = tr.children();
+        var $helper = tr.clone();
+
+        $helper.children().each(function(index) {
+            $(this).width($originals.eq(index).width())
+        });
+
+        return $helper;
+    };
+
+    $(".table-sortable tbody").sortable({
+        helper: fixHelperModified
+    }).disableSelection();
+
+    $(".table-sortable thead").disableSelection();
+
+
+
+    $("#add_row").trigger("click");
+});
+
+$('#time_from').datetimepicker({
+    viewMode: 'days',
+    minDate: new Date(), //Current
+    format: 'DD MMMM YYYY',
+});
+
+$('#time_to').datetimepicker({
+    viewMode: 'days',
+    maxDate: new Date().setDate(new Date().getDate() + 90),
+    useCurrent: false,
+    format: 'DD MMMM YYYY'
+});
+
+$('#time_from').on('dp.change', function (e) {
+    $('#time_to').data('DateTimePicker').minDate(e.date);
+
+    //Use moment.js here
+    var m = moment(new Date(e.date));
+    m.add(90, 'days');
+    $('#time_to').data('DateTimePicker').maxDate(m);
+});
+</script>

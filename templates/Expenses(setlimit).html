@@ -1,0 +1,40 @@
+{% extends 'Navi_and_footer_template.html' %}
+{% block body %}
+  <div style="    display: inline-block;">
+    <div id="setting">
+          <form method="Get" action="/Expenses">
+              <h2>Setting</h2>
+              <p>Would you like to receive message of your daily transactions ?   <input type="radio" name="sms" value="yes"> Yes
+                                                                                  <input type="radio" name="sms" value="no"> No<br></p>
+               <p>Would you like to receive message if you exceed daily limit ?   <input type="radio" name="sms" value="yes"> Yes
+                                                                                  <input type="radio" name="sms" value="no"> No<br></p>
+
+
+          </form>
+    </div>
+
+    <div id="setlimit">
+      <form method="GET" action="/Expenses">
+          <h2>Set daily limit for expenses</h2>
+          <p>Food:<input id="F" class="setlimit" type="number"></p>
+
+          <p>Transport :<input id="T" class="setlimit"    type="number"></p>
+
+          <p>Groceries :<input id="G" class="setlimit"   type="number"></p>
+
+
+
+          <p>Necessity :<input id="N" class="setlimit"   type="number"></p>
+          <p>Shopping:<input id="N" class="setlimit"   type="number"></p>
+         <p>Emergency :<input id="N" class="setlimit"   type="number"></p>
+          <p>Others :  <input id="O"  class="setlimit"  type="number"></p>
+
+          <button type="submit">Continue</button>
+
+      </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

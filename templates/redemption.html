@@ -1,0 +1,105 @@
+{% extends 'Navi_and_footer_template.html' %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% block body %}
+<div id="redemption-page" style="margin-bottom: 30px;">
+<h2 style="text-align:center">REDEMPTION<a href="/redemption_cart"style="float: right;margin-right: 30px;font-size: 20px;margin-top: 20px;">cart</a></h2>
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color: darkgreen">Air Ticket</li>
+    <li><img src="static/Selena/images/airplane.png" style="width:150px;height:150px;"></li>
+    <li class="grey">400 points</li>
+    <li>5% off total price</li>
+    <li>This discount for air tickets is only valid for QANTAS airline. Other airline will not have the discount!</li>
+    <li class="grey"><a href="/redemption_cart" class="button">Add to cart</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color:seagreen">Food</li>
+    <li><img src="static/Selena/images/Food.jpg" style="width:150px;height:150px;"></li>
+    <li class="grey">200 points</li>
+    <li>10% off total price</li>
+    <li>Prepare to enoy discount for food.Since christmas is coming, it is a chance for you to save a little!</li>
+
+    <li class="grey"><a href="/redemption cart" class="button">Add to cart</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color: darkseagreen">Shop</li>
+    <li><img src="static/Selena/images/shopping.jpg" style="width:150px;height:150px;"></li>
+    <li class="grey">300 points</li>
+    <li>10% off from Robinson</li>
+    <li>It's the time of the year where you have to buy LOTS of christmas's decorations and present.</li>
+
+    <li class="grey"><a href="/redemption_cart" class="button">Add to cart</a></li>
+  </ul>
+</div>
+</div>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+.columns {
+    float: left;
+    width: 25%;
+    padding: 8px;
+    margin-left: 15px;
+}
+
+.price {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+.price .header {
+    background-color: #111;
+    color: white;
+    font-size: 25px;
+}
+
+.price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+}
+
+.price .grey {
+    background-color: #eee;
+    font-size: 20px;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .columns {
+        width: 100%;
+    }
+}
+</style>
+{% endblock %}
+
+
+

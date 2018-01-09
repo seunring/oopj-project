@@ -1,0 +1,289 @@
+{% extends 'Navi_and_footer_template.html' %}
+{% block body %}
+    <style> { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title>Planner</title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.material.mobile.min.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kendo.cdn.telerik.com/2017.3.1026/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.3.1026/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.3.1026/js/kendo.timezones.min.js"></script>
+<style>
+.k-edge .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view:hover>.k-link, .k-edge .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view>.k-link, .k-ff .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view:hover>.k-link, .k-ff .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view>.k-link, .k-ie11 .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view:hover>.k-link, .k-ie11 .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view>.k-link, .k-safari .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view:hover>.k-link, .k-safari .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view>.k-link, .k-webkit .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view:hover>.k-link, .k-webkit .k-scheduler-toolbar>ul.k-scheduler-views>li.k-current-view>.k-link {
+    color: #fff;
+    min-width: 20px;
+    margin-top: 500px;
+}
+#example {
+    max-width: 80%;
+    float: right;
+
+}
+</style>
+
+
+<div id="example">
+
+        <div id="people">
+
+    <div id="scheduler"></div>
+</div>
+<script>
+$(function() {
+    $("#scheduler").kendoScheduler({
+        date: new Date("2018/2/16"),
+        startTime: new Date("2018/2/16 07:00 AM"),
+        height: 600,
+        views: [
+
+            "month",
+            "agenda",
+            { type: "timeline", eventHeight: 50}
+        ],
+        timezone: "Etc/UTC",
+        dataSource: {
+            batch: true,
+            transport: {
+                read: {
+                    url: "https://demos.telerik.com/kendo-ui/service/tasks",
+                    dataType: "jsonp"
+                },
+                update: {
+                    url: "https://demos.telerik.com/kendo-ui/service/tasks/update",
+                    dataType: "jsonp"
+                },
+                create: {
+                    url: "https://demos.telerik.com/kendo-ui/service/tasks/create",
+                    dataType: "jsonp"
+                },
+                destroy: {
+                    url: "https://demos.telerik.com/kendo-ui/service/tasks/destroy",
+                    dataType: "jsonp"
+                },
+                parameterMap: function(options, operation) {
+                    if (operation !== "read" && options.models) {
+                        return {models: kendo.stringify(options.models)};
+                    }
+                }
+            },
+            schema: {
+                model: {
+                    id: "taskId",
+                    fields: {
+                        taskId: { from: "TaskID", type: "number" },
+                        title: { from: "Title", defaultValue: "No title", validation: { required: true } },
+                        start: { type: "date", from: "Start" },
+                        end: { type: "date", from: "End" },
+                        startTimezone: { from: "StartTimezone" },
+                        endTimezone: { from: "EndTimezone" },
+                        description: { from: "Description" },
+                        recurrenceId: { from: "RecurrenceID" },
+                        recurrenceRule: { from: "RecurrenceRule" },
+                        recurrenceException: { from: "RecurrenceException" },
+                        ownerId: { from: "OwnerID", defaultValue: 1 },
+                        isAllDay: { type: "boolean", from: "IsAllDay" }
+                    }
+                }
+            },
+            filter: {
+                logic: "or",
+                filters: [
+                    { field: "ownerId", operator: "eq", value: 1 },
+                    { field: "ownerId", operator: "eq", value: 2 }
+                ]
+            }
+        },
+        resources: [
+            {
+                field: "ownerId",
+                title: "Reason",
+                dataSource: [
+                    { text: "Travelling", value: 1, color: "#f8a398" },
+                    { text: "Payments", value: 2, color: "#51a0ed" },
+                    { text: "Other", value: 3, color: "#56ca85" }
+                ]
+            }
+        ]
+    });
+
+    $("#people :checkbox").change(function(e) {
+        var checked = $.map($("#people :checked"), function(checkbox) {
+            return parseInt($(checkbox).val());
+        });
+
+        var scheduler = $("#scheduler").data("kendoScheduler");
+
+        scheduler.dataSource.filter({
+            operator: function(task) {
+                return $.inArray(task.ownerId, checked) >= 0;
+            }
+        });
+    });
+});
+</script>
+<style>
+
+.k-nav-current > .k-link span + span {
+    max-width: 200px;
+}
+
+
+.k-scheduler-toolbar{background-color:#4CAF50;}
+.k-gantt-toolbar .k-button, .k-gantt>.k-header .k-link, .k-gantt>.k-header li, .k-grid .k-header .k-button, .k-scheduler .k-header .k-button, .k-scheduler .k-header .k-link, .k-scheduler .k-header li, .km-pane-wrapper .k-header .k-button {
+    color: #fff;
+    background-color: #3f51b500;
+    border-color: #3f51b505;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.k-autocomplete, .k-draghandle, .k-dropdown-wrap, .k-grid-header, .k-grouping-header, .k-header, .k-numeric-wrap, .k-pager-wrap, .k-panelbar .k-tabstrip-items .k-item, .k-picker-wrap, .k-progressbar, .k-state-highlight, .k-tabstrip-items .k-item, .k-textbox, .km-pane-wrapper>.km-pane>.km-view>.km-content {
+    background-image: none;
+    background-image: none,-webkit-gradient(linear,left top,left bottom,from(false));
+    background-image: none,-webkit-linear-gradient(top,false);
+    background-image: none,linear-gradient(to bottom,false);
+    background-position: 50% 50%;
+    background-color: #4CAF50;
+}
+.k-scheduler-monthview .k-hidden, .k-scheduler-monthview .k-scheduler-table td {
+    height: 80px;
+    text-align: right;
+    cursor: pointer;
+}
+
+</style>
+
+</div>
+
+    <div id="divcontent">
+            <h1 style="text-align: center;font-family: sans-serif;">Plan your trip now</h1>
+
+
+    <div style="display: table;height: 416.400px;    width: 80%;overflow: auto;">
+            <div class="tab2">
+              <button class="tablinks2" onclick="openCity2(event, 'London2')" id="defaultOpen2">Hotel</button>
+              <button class="tablinks2" onclick="openCity2(event, 'Paris2')">Shopping</button>
+              <button class="tablinks2" onclick="openCity2(event, 'Tokyo2')">Gourmet</button>
+               <button class="tablinks2" onclick="openCity2(event, 'chinese2')">Site Seeing</button>
+            </div>
+
+            <div id="London2" class="tabcontent2">
+              <h3>Hotel</h3>
+              <img width="100%" src="static/Tiffany/hotel_img/Nav_bar/images/checkdate.png"/>
+                <img width="100%"src="static/Tiffany/hotel_img/Nav_bar/images/result.png"/>
+            </div>
+
+            <div id="Paris2" class="tabcontent2">
+              <h3>Shopping</h3>
+              <p></p>
+            </div>
+
+            <div id="Tokyo2" class="tabcontent2">
+              <h3>Gourmet</h3>
+              <img width="100%" src="static/Tiffany/hotel_img/Nav_bar/images/Screenshot (35).png"/><br>
+                <img width="100%"src="static/Tiffany/hotel_img/Nav_bar/images/seeall.png"/><br>
+                <img width="100%" src="static/Tiffany/hotel_img/Nav_bar/images/all.png"/>
+
+            </div>
+                <div id="chinese2" class="tabcontent2">
+              <h3>Site Seeing</h3>
+              <p></p>
+            </div>
+
+<script>
+function openCity2(evt, cityName) {
+    var i, tabcontent2, tablinks2;
+    tabcontent2 = document.getElementsByClassName("tabcontent2");
+    for (i = 0; i < tabcontent2.length; i++) {
+        tabcontent2[i].style.display = "none";
+    }
+    tablinks2 = document.getElementsByClassName("tablinks2");
+    for (i = 0; i < tablinks2.length; i++) {
+        tablinks2[i].className = tablinks2[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen2").click();
+</script>
+
+    </div>
+
+    <h1 style="margin-top: 15%;text-align: center;
+    font-family: sans-serif;">My Planner for Tokyo trip</h1>
+   <script>
+            function openCity(cityName,elmnt,color) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+                document.getElementById(cityName).style.display = "block";
+                elmnt.style.backgroundColor = color;
+
+            }
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click;
+</script>
+    <div style="display: table;height: 416.400px;
+        width: 80%;">
+
+
+
+
+                <div id="London" class="tabcontent">
+
+                    <table>
+                    <tr><th>Nagoya Tokyu Hotel</th><td>Details</td></tr>
+                        <tr><th rowspan="3" style="    width: 40%;"><img width="100%"src="static/Tiffany/hotel_img/Nav_bar/images/hotel1.jpg"></th>     <td>Check-in: 20 December 2018</td></tr>
+                        <tr>                                                                                                    <td>Check-out: 31 December 2018</td></tr>
+                    </table>
+
+                </div>
+
+
+                <div id="Paris" class="tabcontent">
+
+                  <ol>
+                      <li><h2 align="top" >Shibuya:</h2>
+                             <img style="width:30%;float: left;" src="static/Tiffany/hotel_img/Nav_bar/images/shopping1.jpg" >
+                                  <p>Perhaps Shibuya’s vibrancy can be attributed to its target market, the youth. This district is most known for being the city’s teen fashion capital and at the heart of it is Shibuya 109. From the famous Shibuya crossing, you can easily spot this iconic building, which is dedicated entirely to a young female’s fashion needs. Floors upon floors of shoes, clothes, costumes, accessories, and beauty products can be found here.
+
+                                        Aside from Shibuya 109, you can also find several other departments stores, boutiques, 100 Yen discount shops, and independent stores scattered all over Shibuya’s labyrinth of shopping streets and alleyways. Your main access point is most likely Center Gai at the base of Tsutaya Building – the one with a Starbucks Café overlooking the intersection. From there, just follow your curiosity and turn as you like.
+
+                                      </p>
+                                  <p>Shibuya 109: <a href="http://www.shibuya109.jp/en/" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://www.shibuya109.jp/en/', 'http://www.shibuya109.jp/en/');" target="_blank">http://www.shibuya109.jp/en/</a></p>
+                      </li>
+                      <li><h2 align="top">Harajuku :</h2>
+                        <img style="float: left;width:30%;"src="static/Tiffany/hotel_img/Nav_bar/images/shopping2_n.jpg" >
+                          <p>Right across JR Harajuku Station is the entrance to Takeshita Dori, this neighborhood’s main retail artery. This narrow street is crammed with boutiques catering to edgier styles interspersed with equally fashionable cafés and dessert shops. There are a number of shops that sell accessories and novelty items, and if you’re the type to go crazy over Japan’s popular 100-yen stores, you can find Central Tokyo’s largest one here – Daiso Harajuku. Vintage lovers will also find their soulmates at Takeshita Dori and its smaller alleyways as the area is also home to a lot of second-hand shops.</p>
+                          <p>Daiso: <a href="http://www.daisoglobal.com" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://www.daisoglobal.com', 'http://www.daisoglobal.com');" target="_blank">http://www.daisoglobal.com</a></p>
+                      </li>
+
+                    </ol>
+                </div>
+
+                <div id="Tokyo" class="tabcontent">
+                  <h3>Gourmet</h3>
+                  <img style="width: 100%;" src="static/Tiffany/hotel_img/Nav_bar/images/Screenshot (36).png"/>
+                </div>
+
+                <div id="Oslo" class="tabcontent">
+                  <h3>Site Seeing</h3>
+                  <p>places to go</p>
+                </div>
+
+                <button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpen">Hotel</button>
+                <button class="tablink" onclick="openCity('Paris', this, 'green')">Shopping</button>
+                <button class="tablink" onclick="openCity('Tokyo', this, 'blue')">Gourmet</button>
+                <button class="tablink" onclick="openCity('Oslo', this, 'orange')">Site Seeing</button>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Top up page</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+      <link rel="stylesheet" href="../static/Agnes/style.css">
+
+
+</head>
+
+<body>
+  <!-- multistep form -->
+<form id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li class="active">Top up now </li>
+    <li>Confirmation OTP</li>
+    <li>Done</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2 class="fs-title">Top up your account</h2>
+    <h3 class="fs-subtitle">Step 1</h3>
+    <label>Which card would you like to use : </label>
+    	<select id='card' required>
+        <option value='1234'>4756-1234-9876</option>
+        <option value='4567'>3432-4567-5634</option>
+        </select>
+      </br></br>
+      <label>Top up amount : </label>
+	<input name="box1" value="50" type="radio" id="box1" onClick="multiplyBy()">
+	 SGD50
+	<input name="box2" value="100" type="radio" id="box2" onClick="multiplyBy2()">
+	 SGD100
+	 <input name="box3" value="200" type="radio" id="box3" onClick="multiplyBy3()">
+	 SGD200
+	 <input name="box4" value="500" type="radio" id="box4" onClick="multiplyBy4()">
+	 SGD500
+
+  </br>
+	</br>Amount : $
+	<span id = "result"></span>
+      </br></br>
+
+
+										<tr><td>Expiration Date</td>
+									 <td><select id='expmonth' required="required">
+										<option value=''>--Select Month--</option>
+										<option value='1'>Janaury</option>
+										<option value='2'>February</option>
+										<option value='3'>March</option>
+										<option value='4'>April</option>
+										<option value='5'>May</option>
+										<option value='6'>June</option>
+										<option value='7'>July</option>
+									<option value='8'>August</option>
+										<option value='9'>September</option>
+										<option value='10'>October</option>
+										<option value='11'>November</option>
+										<option value='12'>December</option>
+									</select>
+									<select id="expyear" required="required">
+										<option value="">--Select Year--</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2005">2019</option>
+										<option value="2004">2020</option>
+										<option value="2003">2021</option>
+										<option value="2002">2022</option>
+										<option value="2001">2023</option>
+										<option value="2000">2024</option>
+										<option value="1999">2025</option>
+										<option value="1998">2026</option>
+										<option value="1997">2027</option>
+										<option value="1996">2028</option>
+										<option value="1995">2029</option>
+										<option value="1994">2030</option>
+										<option value="1993">2031</option>
+										<option value="1992">2032</option>
+										<option value="1991">2033</option>
+										<option value="1990">2034</option>
+										<option value="1989">2035</option>
+										<option value="1988">2036</option>
+										<option value="1987">2037</option>
+									</select>
+									</td>
+									</tr>
+</br>
+</br>
+	<label> CVV : </label>
+    <input class='cvv' type='text' name='cvv'  maxlength='3' value='' >
+
+    </br>
+    <a href="/Home" class="previous action-button" type="button">Return Home</a>
+    <input type="button" name="next" class="next action-button" value="Next"  onsubmit="return(validate());"/>
+  </fieldset>
+
+  <fieldset>
+    <h2 class="fs-title">Confirmation</h2>
+    <h3 class="fs-subtitle">OTP confirmation</h3>
+   <div class="container be-detail-container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3" >
+            <br>
+            <img src="../static/Agnes/confirm.png" class="img-responsive" style="width:200px; height:200px;margin:0 auto;"><br>
+
+            <h1 class="text-center">Confirm your top-up</h1><br>
+			<p>Your account number : <b>3432-xxxx-x634</b></p>
+            <p class="lead" style="align:center"></p><p> You've top up <b>$100</b> into Kiasu Lah. An OTP has been sent to your Mobile Number. Please enter the 4 digit OTP below for Confirmation</p>  <p></p>
+        <br>
+
+
+                <div class="row">
+                <div class="form-group " style="display: inline-block; ">
+                	 <span style="color:red;"></span><input type="text" class="form-control" name="otp" placeholder="Enter your OTP number" required="" value='' style="height:30px;">
+                </div>
+				<button type="submit" class="btn">Verify</button>
+                </div>
+				<div>
+				<button type='submit' class='resend'  >Resend OTP</button>
+                    <div id="test"></div>
+        <br><br>
+        </div>
+    </div>
+</div>
+   </div>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+          <input type="button" name="next" class="next action-button" value="Next"  onsubmit="return(validate());"/>
+  </fieldset>
+
+    <fieldset>
+    <h2 class="fs-title">Top up completed</h2>
+        <div id="content">
+   <h1 class="thankyoumsg">Thank you for topping up with us!</h1>
+<h2 class="exciting">More Exciting things awaiting for your discovery! </h2>
+            <a href="/Promotions">  <p class="incen circle ">PROMOTIONS</p></a>
+            <a href="/saving"><p class="savenow circle">SAVE NOW </p></a>
+            <a href="/exchangecurrency"><p class="xchange circle">CURRENCY EXCHANGE</p></a>
+            <a href="/Home"><p class="home1 circle">HOME</p></a>
+<p class="last"></p>
+</div>
+
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+  </fieldset>
+</form>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+
+    <script  src="../static/Agnes/index.js">
+
+    </script>
+
+</body>
+</html>

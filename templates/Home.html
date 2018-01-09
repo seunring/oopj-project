@@ -1,0 +1,446 @@
+{% extends 'Navi_and_footer_template.html' %}
+
+ <!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="static/css/home.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+</head>
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+{% block body %}
+
+<!-- Navbar -->
+
+
+<!-- Header -->
+<header class="w3-container w3-green w3-center"
+
+
+
+        style="    padding: 100px 16px;
+    width: 77%;
+    /* float: right; */
+    display: -webkit-inline-box;
+    margin-left:3.5px;
+    background-color: #4CAF50;
+     border-radius: 8px;
+
+
+">
+  <h1 class="w3-margin w3-jumbo"style="padding-left:250px;color:white">WELCOME TO KIASU LEH</h1>
+
+</header>
+
+<br>
+<br>
+<br>
+<!-- First Grid --> <h1>ACCOUNT</h1>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+button.accordion {
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ccc;
+}
+
+div.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+}
+</style>
+</head>
+<div id="home-account" style="display:flow-root;width:75%;margin:auto;">
+    <button class="accordion" style='background-color:white ;margin-right:0.5px;border:1px solid;'>Acc: 4756 xxxx 9876 <strong>(MOB credit card)</strong></button>
+<div class="panel">
+  <p><table style="width:100%">
+  <tr>
+    <td>Credit Limit:</td>
+    <td>S5000</td>
+
+  </tr>
+  <tr>
+      <td><a href="/Expenses">Spending</a></td>
+    <td>($1234)</td>
+
+  </tr>
+  <tr>
+    <td>Remaining Credit:</td>
+    <td>$3766</td>
+
+  </tr>
+</table></p>
+</div>
+
+    <button class="accordion" style='background-color:red;margin-right:0.5px;color:white;'>Acc: 4756 xxxx 9876<strong> (MOB debit card)</strong></button>
+<div class="panel">
+  <p><table style="width:100%">
+
+<style>
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+</style>
+    <br>
+    <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Danger!</strong>You have overspent your budget!.
+</div>
+
+
+
+
+
+  <tr>
+    <td>Total amount:</td>
+    <td>S1234</td>
+
+  </tr>
+  <tr>
+      <td><a href="/Expenses">Spending</a></td>
+    <td>($500)</td>
+
+  </tr>
+  <tr>
+    <td>Balance:</td>
+    <td>$734</td>
+
+  </tr>
+</table></p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+</script>
+
+
+
+
+
+    <br>
+
+<br>
+    <br>
+
+
+
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+<br>
+    <br>
+    <br>
+    <br>
+   <h1 style="    /* margin-left: 253px; */
+    display: -webkit-inline-box">
+       KIASU BALANCE</h1>
+
+                     <div class="progress-bg"style=" float:right;
+    margin-right:160px;">
+                     <div class="progress-bar">
+              <h3 class="raised"style="font-size:28px">Saved: 250SGD </h3>
+
+                     </div>
+        	<h3 class="goal"style="font-size:28px">Goal: 500SGD</h3>
+                     </div>
+
+
+		<div class="progress-bg"style=" float:right;
+    margin-right:160px;">
+    	<div class="progress-bar">
+        	<h3 class="raised" style="font-size:28px">Saved:20996.22JPY</h3>
+        </div>
+
+        	<h3 class="goal"style="font-size:28px">Goal: 41992.44JPY</h3>
+        </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+   <style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+
+    width: auto;
+    float: right;
+    margin-right: 20px;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  background: #ed6b6b;
+  background-image: -webkit-linear-gradient(top, #ed6b6b, #f07f7f);
+  background-image: -moz-linear-gradient(top, #ed6b6b, #f07f7f);
+  background-image: -ms-linear-gradient(top, #ed6b6b, #f07f7f);
+  background-image: -o-linear-gradient(top, #ed6b6b, #f07f7f);
+  background-image: linear-gradient(to bottom, #ed6b6b, #f07f7f);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px 20px 14px 20px;
+  text-decoration: none;
+}
+
+.cancelbtn:hover {
+  background: #e02121;
+  text-decoration: none;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.confirm {float:left;width:50%}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 300px;
+    top: 140px;
+    color: #000;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+.confirm {
+  background: #7ae6ac;
+  background-image: -webkit-linear-gradient(top, #7ae6ac, #78eb7e);
+  background-image: -moz-linear-gradient(top, #7ae6ac, #78eb7e);
+  background-image: -ms-linear-gradient(top, #7ae6ac, #78eb7e);
+  background-image: -o-linear-gradient(top, #7ae6ac, #78eb7e);
+  background-image: linear-gradient(to bottom, #7ae6ac, #78eb7e);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+    cursor: pointer;
+}
+
+.confirm:hover {
+  background: #10cc4c;
+  text-decoration: none;
+}
+</style>
+
+<br>
+    <br>
+    <br>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;float:right;margin-right:20px;margin-top:8px;">Exchange</button>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">x</span>
+  <form class="modal-content animate" action="" name="myForm" >
+    <div class="container">
+    <h1>Exchange Rate</h1>
+        <label> ARE YOU SURE YOU WANT TO EXCHANGE <b> SGD100 -> JYP$8401?</b></label>
+    </br>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <input type="button" value="Confirm" class="confirm" onclick=window.open(href='/Confirmation1','popUpWindow','height=400,width=600,left=10,top=10,,scrollbars=yes,menubar=no'); return false; />
+
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+</script>
+
+<br>
+    <br>
+<br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+ <h1 style="    float: left;
+    margin-left: 2%;
+
+
+
+
+">SCHEDULER</h1>
+    <h1 style="float: right;
+    margin-right:20px;
+
+
+
+">CURRENCY CONVERTER</h1>
+<br>
+
+
+    <br><br><br>
+<div class="container">
+
+
+
+    <div class="agenda"style="float:left;width:50%;">
+        <img src="static/Selena/images/agenda.png"width="90%"height="230px"float="left">
+
+        </div>
+
+            <div id='gcw_mainFFEwZo1AP' class='gcw_mainFFEwZo1AP'style="    float: right;
+    margin-top: 20%;
+    display: block;
+    max-width:350px!important;
+    /* max-width: 447px!important; */
+    /* margin-top: -313px!important; */
+
+
+">
+
+<script>function reloadFFEwZo1AP(){ var sc = document.getElementById('scFFEwZo1AP');if (sc) sc.parentNode.removeChild(sc);sc = document.createElement('script');sc.type = 'text/javascript';sc.charset = 'UTF-8';sc.async = true;sc.id='scFFEwZo1AP';sc.src = 'https://freecurrencyrates.com/en/widget-vertical?iso=USDEURGBPJPYCNYSGDBND&df=2&p=FFEwZo1AP&v=its&source=fcr&width=245&width_title=0&firstrowvalue=1&thm=dddddd,eeeeee,E78F08,F6A828,FFFFFF,cccccc,ffffff,1C94C4,000000&title=Currency%20Converter&tzo=-480';var div = document.getElementById('gcw_mainFFEwZo1AP');div.parentNode.insertBefore(sc, div);} reloadFFEwZo1AP(); </script>
+<!-- put custom styles here: .gcw_mainFFEwZo1AP{}, .gcw_headerFFEwZo1AP{}, .gcw_ratesFFEwZo1AP{}, .gcw_sourceFFEwZo1AP{} -->
+    <!--End of Currency Converter widget by FreeCurrencyRates.com --></div>
+
+
+    </div>
+</div>
+
+    <!--Currency Converter widget by FreeCurrencyRates.com -->
+
+
+
+
+
+</html>
+{% endblock %}
